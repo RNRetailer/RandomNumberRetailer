@@ -96,7 +96,7 @@ contract Deployer {
       emit ContractDeployed(
         Create2.deploy(
             0, 
-            "RNR Example Client v1", 
+            "RNR Example Client v1.0", 
             type(RandomNumberRetailerExampleClient).creationCode
         )
       );
