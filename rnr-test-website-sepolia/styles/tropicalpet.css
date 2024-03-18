@@ -1,0 +1,226 @@
+/*
+Petz
+Style Name: Tropical Pet
+ */
+/*________  Blue ________  */
+
+.pager li>a:hover,
+.back-to-top i:hover,
+.pager li > a,
+.pager li > span,
+.nav .open>a,
+.nav .open>a:focus,
+.nav .open>a:hover,
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.blog-tags a:hover,
+.blog-tags a:focus,
+.pagination>li>a:hover,
+.pagination>li>a:focus,
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover,
+.list-group-item,
+.social-media a i,
+.jumbotron .jumbo-heading,
+.price-table .plan-select a,
+.nav-pills>li>a,
+.nav.nav-tabs>li>a,
+.img-hover,
+.navbar-custom ul.nav ul.dropdown-menu,
+.bg-darkcolor,
+.panel-heading a.collapsed,
+.sidebar-header,
+.btn:hover,
+.label.default,
+.gallery-thumb .overlay-mask .owl-prev i:hover,
+.owl-next i:hover,
+.slide__overlay {
+    background-color: #0C4348;
+}
+
+.media-heading small,
+.smaller.social-media a i,
+span,
+hr,
+a,
+h2,
+.price-table .plan-price,
+.social-media a i:hover,
+.team-wrap .member .wrap .info .position li:before,
+ul.custom li {
+    color: #0C4348;
+}
+
+.service,
+.comment,
+.small-heading,
+.search-group .form-control,
+.breadcrumb,
+.container-fluid.accordion-group,
+.social-media a i,
+.img-blog img:hover,
+.team-wrap .member,
+#elements h3.sub-header,
+.img-rounded,
+.table>tbody>tr>td,
+.table>tbody>tr>th,
+.table>tfoot>tr>td,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>thead>tr>th {
+    border-color: #0C4348;
+}
+
+.box_icon > .icon:hover > .image,
+.review .review-profile-image img {
+    outline-color: #0C4348;
+}
+
+/*________  Light Green  ________  */
+
+.smaller.social-media a i:hover,
+.post-info i,
+.gallery-thumb i:hover,
+a:hover,
+a:focus,
+#about .media i,
+h6,
+i,
+.breadcrumb>.active,
+.breadcrumb a:hover,
+.breadcrumb a:focus,
+blockquote:before,
+#feature .media i,
+.page-header h2,
+.jumbo-heading h3,
+.small-heading,
+.nav.nav-tabs>li.active>a,
+.features:hover i,
+.numscroller,
+.bounce1:after,
+.img-box ul i:hover {
+    color: #4DB751;
+}
+
+a.list-group-item:focus,
+a.list-group-item:hover,
+button.list-group-item:focus,
+button.list-group-item:hover,
+.open>.dropdown-toggle.btn-primary:focus,
+.open>.dropdown-toggle.btn-primary:hover,
+.nav-pills .nav > li > a:focus,
+.pager li > a:hover,
+.pager li > a:focus,
+.back-to-top i,
+.blog-tags a,
+.date-category,
+.dropdown-menu>li>a:focus,
+.dropdown-menu>li>a:hover,
+.pagination>li>a,
+.pagination>li>span,
+.nav-pills>li.active>a,
+.nav.nav-pills > li > a:focus,
+.nav.nav-pills > li > a:hover,
+.nav.nav-pills > li > .active,
+.nav.nav-tabs>li>a:hover,
+.nav.nav-tabs > li.active > a:hover,
+.btn,
+.label-danger,
+.navbar-custom ul.nav ul.dropdown-menu li a:hover,
+.input-group.date .input-group-addon,
+.owl-theme .owl-dots .owl-dot span,
+.owl-theme .owl-dots .owl-dot span:before,
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span,
+#elements h3.sub-header,
+.panel-heading a,
+.panel-heading a:hover,
+.navbar-custom ul.nav li a:hover,
+.navbar-custom .nav > .active > a {
+    background-color: #4DB751;
+}
+
+.elements h5,
+.open>.dropdown-toggle.btn-default:focus,
+.open>.dropdown-toggle.btn-default:hover,
+.form-control:focus,
+.features i {
+    border-color: #4DB751;
+}
+/*________  Green  ________  */
+
+.btn {
+    box-shadow: inset 9px 0px 0px 0px #40863E;
+}
+
+.navbar,
+.nav>li>a:focus,
+.section-heading h2:before,
+.section-heading h2:after,
+.owl-prev i,
+.owl-next i,
+.bg-darkcolor .btn:hover {
+    background-color: #40863E;
+}
+
+.form-control,
+.price-table .featured,
+#map-canvas {
+    border-color: #40863E;
+}
+
+.date-category i {
+    color: #40863E;
+}
+/*________  Secondary gray  ________  */
+
+.bg.row,
+.review .review-profile-image img,
+.jumbotron,
+#elements h5.sub-header {
+    border-color: #F5F3EE;
+}
+
+.label-default,
+blockquote,
+.box_icon > .icon,
+.bg-lightcolor1,
+.review .review-caption,
+.call-to-action,
+#preloader,
+.features i,
+.sidebar .well,
+.blog-row,
+.dropdown-menu,
+.tab-content,
+.nav.nav-tabs > li.active > a:focus,
+.nav.nav-tabs>li.active>a,
+.team-wrap .member {
+    background-color: #F5F3EE;
+}
+
+.img-circle,
+.blog-post,
+.sidebar,
+.accordion-group {
+    border-color: #F5F3EE;
+}
+/*________  Secondary Green ________  */
+
+
+.price-table .plan,
+.well.lightcolor,
+.bg-lightcolor2,
+#elements h5.sub-header,
+.table-hover>tbody>tr:hover {
+    background: #e8f2b1;
+}
+
+.adoption-thumb img,
+.adoption-thumb:hover img {
+    border-color: #e8f2b1;
+}
