@@ -13,6 +13,8 @@ Test webite: https://rnretailer.github.io/RandomNumberRetailer/rnr-test-website-
 Sepolia smart contract: https://sepolia.etherscan.io/address/0xd058eA7e3DfE100775Ce954F15bB88257CC10191
 
 Twitter: https://twitter.com/RNRetailer
+
 Discord: https://discord.gg/ugrjPCyfWd
+
 reddit: reddit.com/r/randomnumberretailer
 
