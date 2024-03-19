@@ -16,5 +16,5 @@ Twitter: https://twitter.com/RNRetailer
 
 Discord: https://discord.gg/ugrjPCyfWd
 
-reddit: reddit.com/r/randomnumberretailer
+reddit: https://reddit.com/r/randomnumberretailer
 
