@@ -32,6 +32,7 @@
       <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
       <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
       <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <script src="js/wasm_exec.js"></script>
    </head>
    <body id="page-top">
       <!-- Preloader -->
@@ -120,15 +121,6 @@
                <img src="img/servicesintro.png" class="img-responsive" alt="">
             </div>
              /col-md-->
-
-		<script src="libv86.js"></script>
-
-		<!-- A minimal structure for the ScreenAdapter defined in browser/screen.js -->
-		<div id="screen_container" class="col-md-7" style="margin-top: 15px;">
-			<span id="loading">Please wait for Linux VM to load...</span>
-			<div style="white-space: pre; font: 14px monospace; line-height: 14px"></div>
-			<canvas style="display: none"></canvas>
-		</div>
 		
 		 <form class="form-horizontal">	
 			<!-- Button -->
@@ -813,6 +805,7 @@
 			window.web3 = new Web3(window.ethereum);
 			await switchNetwork(chainID);
 			window.rnrContract = new window.web3.eth.Contract(abi, rnrContractAddress);
+			$('#connectWalletButtonHolder').css('display', '');
 			return true;
 		  }
 		  alert("Please install MetaMask to use this website. Check the How To Play page if you don't know how. Thanks!");
@@ -838,119 +831,7 @@
 			else{
 			    return true;
 			}
-        }
-		
-		async function loadEmulatorState(buffer){
-			while (true){
-				if('restore_state' in window.emulator){
-					try{
-						await window.emulator.restore_state(buffer);
-						return;
-					}
-					catch (e){
-					    console.log(e);
-					}
-				}
-				
-				await sleep(250);
-			}
-		}
-		
-		async function setUpEmulator(){
-			const initialStateUrl = 'https://random-number-retailer.s3.amazonaws.com/v86state-clear-history.bin';
-			const initialStateUrlGZIP = 'https://random-number-retailer.s3.amazonaws.com/v86state-clear-history.bin.gz';
-		
-			if (!window.chrome){
-				document.getElementById('loading').remove();
-				
-				var emulator = window.emulator = new V86({
-					wasm_path: "v86.wasm",
-					memory_size: 400 * 1024 * 1024,
-					vga_memory_size: 8 * 1024 * 1024,
-					screen_container: document.getElementById("screen_container"),
-					bios: {
-						url: "seabios.bin",
-					},
-					vga_bios: {
-						url: "vgabios.bin",
-					},
-					initial_state: {
-						url: initialStateUrl
-					},
-					autostart: true,
-				});
-			
-				return;
-			}
-		
-			const storageRoot = await navigator.storage.getDirectory();
-			const fileHandle = await storageRoot.getFileHandle( "initial_state.bin", { "create" : true });
-			const file = await fileHandle.getFile();
-			let buffer;
-			
-			if(file.size === 0){
-				console.log('we need to download the initial_state');
-			
-				const decompress = async (url) => {
-				  const ds = new DecompressionStream('gzip');
-				  const response = await fetch(url);
-				  const blob_in = await response.blob();
-				  const stream_in = blob_in.stream().pipeThrough(ds);
-				  const blob_out = await new Response(stream_in).blob();
-				  const tempBuffer = await blob_out.arrayBuffer();
-				  return tempBuffer;
-				};
-
-				buffer = await decompress(
-				  initialStateUrlGZIP
-				);
-				
-				document.getElementById('loading').remove();
-				
-				var emulator = window.emulator = new V86({
-					wasm_path: "v86.wasm",
-					memory_size: 400 * 1024 * 1024,
-					vga_memory_size: 8 * 1024 * 1024,
-					screen_container: document.getElementById("screen_container"),
-					bios: {
-						url: "seabios.bin",
-					},
-					vga_bios: {
-						url: "vgabios.bin",
-					},
-					//initial_state: buffer,
-					autostart: true,
-				});
-				
-				const wtr = await fileHandle.createWritable();
-				await wtr.write(buffer);
-				await wtr.close();
-			}
-			else{
-				console.log('we already have the initial_state');
-			
-				buffer = await file.arrayBuffer();
-				
-				document.getElementById('loading').remove();
-				
-				var emulator = window.emulator = new V86({
-					wasm_path: "v86.wasm",
-					memory_size: 400 * 1024 * 1024,
-					vga_memory_size: 8 * 1024 * 1024,
-					screen_container: document.getElementById("screen_container"),
-					bios: {
-						url: "seabios.bin",
-					},
-					vga_bios: {
-						url: "vgabios.bin",
-					},
-					//initial_state: buffer,
-					autostart: true,
-				});
-			}
-			
-			loadEmulatorState(buffer);
-		}
+                }
 		
 		window.onload = (event) => {
 		    isConnected();
@@ -958,83 +839,6 @@
 
 		function sleep(ms) {
 			return new Promise(resolve => setTimeout(resolve, ms));
-		}
-		
-		async function sleepUntilOldTerminalOutputIsClear(){
-		    callTerminalCommand('clear');
-		
-		    while(true){
-			    const text = document.getElementById('screen_container').textContent;
-				const start = text.lastIndexOf('[[');
-				
-				if (start === -1){
-				    return;
-				}
-				
-				await sleep(500);
-			}
-		}
-
-		async function getVRFProofAndRequestCommitmentFromEmulator(metamaskSender, randomSeedArrayLength, latestBlockNumber){
-			const text = document.getElementById('screen_container').textContent;
-			
-			if(!text.replace(/\s/g, "").endsWith('tc@box:~$')){
-				return;
-			}
-			
-			const start = text.lastIndexOf('[[');
-			const end = text.lastIndexOf(']]');
-			
-			if (start === -1 || end === -1){
-				return;
-			}
-			
-			const JSONString = text.substring(start, end + 2);
-			
-			if (text.indexOf('[null]') != -1){
-				await callRandomNumberGenerationFunction(metamaskSender, randomSeedArrayLength, latestBlockNumber, true);
-				return;
-			}
-			
-			return JSON.parse(JSONString)[0];
-		}
-
-		function callTerminalCommand(command){
-			for(let i=0; i < command.length; i++){
-				emulator.keyboard_adapter.simulate_char(command[i]);
-			}
-			
-			emulator.keyboard_adapter.simulate_char('\n');
-		}
-
-		async function callRandomNumberGenerationFunction(metamaskSender, randomSeedArrayLength, latestBlockNumber, shouldClear){
-			const block = await web3.eth.getBlock(latestBlockNumber);
-			const blockHash = block.hash;
-			
-			if(shouldClear){
-			    callTerminalCommand('clear');
-			}
-			
-			const command = `./main-json-only-32 gen-vrf-numbers -n 1 -pw 'FJFJDJ37837373@#@#@#@#' -sender ${metamaskSender} -subid 9715 -blockhash ${blockHash} -blocknum ${latestBlockNumber} -cb-gas-limit 1000000 -num-words ${randomSeedArrayLength} -num-workers 1`;
-			
-			callTerminalCommand(command);
-		}
-
-		async function generateRandomNumber(metamaskSender, randomSeedArrayLength, latestBlockNumber){
-			await sleepUntilOldTerminalOutputIsClear();
-		
-			await callRandomNumberGenerationFunction(metamaskSender, randomSeedArrayLength, latestBlockNumber, false);
-			
-			while(true){
-				const proofAndRequestCommitment = await getVRFProofAndRequestCommitmentFromEmulator(metamaskSender, randomSeedArrayLength, latestBlockNumber);
-								
-				if (proofAndRequestCommitment != null){
-					//alert('random number generated successfully!')
-					return proofAndRequestCommitment;
-				}
-				
-				await sleep(1 * 1000);
-			}
 		}
 		
 		async function metamaskAccountsExist(){
@@ -1131,6 +935,48 @@
 			];
 		}
 		
+		async function getRandomNumberFromWASM(metamaskSender, randomSeedArrayLength, latestBlockNumber) {
+			try {
+				const block = await web3.eth.getBlock(latestBlockNumber);
+				const blockHash = block.hash;
+				const password = 'FJFJDJ37837373@#@#@#@#';
+				const subID = 9715;
+				const cbsGasLimit = 1000000;
+				const numWorkers = 1;
+				console.log('About to create a go object')
+				const go = new Go();
+				console.log('Successfully created a go object')
+				const wasmModule = await WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject);
+				console.log('Successfully instantiated wasm')
+				go.run(wasmModule.instance);
+				console.log('Successfully ran module instance')
+
+				const result = generate(
+							1,
+							password,
+							metamaskSender,
+							subID,
+							blockHash,
+							latestBlockNumber,
+							cbsGasLimit,
+							randomSeedArrayLength,
+							numWorkers);
+							
+				const start = result.lastIndexOf('[[');
+				const end = result.lastIndexOf(']]');
+
+				if (start === -1 || end === -1) {
+					throw new Error("Invalid JSON format in text");
+				}
+
+				const JSONString = result.substring(start, end + 2);
+				return JSON.parse(JSONString)[0];
+			} catch (err) {
+				console.error("Failed to load WASM module or process result:", err);
+				throw err;
+			}
+		}
+		
 		async function requestRandomNumbersSynchronousUsingVRFv2Seed(){
 			let amountOfRandomNumbersToRequest = prompt("How many random numbers do you want?");
 			
@@ -1149,12 +995,11 @@
 			randomSeedArrayLength = Number(randomSeedArrayLength);
 		
 			const latestBlockNumber = await web3.eth.getBlockNumber();
+			const latestBlockNumberStr = latestBlockNumber.toString();
 			
 			const metamaskSender = window.ethereumAddresses[0];
 			
-			document.getElementById('screen_container').style['display'] = '';
-			
-			const proofAndRequestCommitment = await generateRandomNumber(metamaskSender, randomSeedArrayLength, latestBlockNumber);
+			const proofAndRequestCommitment = await getRandomNumberFromWASM(metamaskSender, randomSeedArrayLength, latestBlockNumberStr);
 			
 			// -------------------------------------------------------------------------------------
 						
@@ -1230,8 +1075,6 @@
 			    alert('requestRandomNumbersSynchronousUsingVRFv2Seed failed. Please try again.');
 			});
 		}
-		
-		setUpEmulator();
 	  </script>
    </body>
 </html>
