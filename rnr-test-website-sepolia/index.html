@@ -805,7 +805,7 @@
 			window.web3 = new Web3(window.ethereum);
 			await switchNetwork(chainID);
 			window.rnrContract = new window.web3.eth.Contract(abi, rnrContractAddress);
-			$('#connectWalletButtonHolder').css('display', '');
+			$('#connectWalletButtonHolder').css('display', 'none');
 			return true;
 		  }
 		  alert("Please install MetaMask to use this website. Check the How To Play page if you don't know how. Thanks!");
