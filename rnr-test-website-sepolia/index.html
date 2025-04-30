@@ -108,12 +108,7 @@
 					  <button type="button" onclick="connectWallet()" id="connectWalletButton" name="singlebutton" class="btn btn-primary">Connect Wallet</button>
 				   </div>
 				</div>
-				<div class="form-group" style="margin-bottom:15px;">
-				   <div class="col-md-6">
-					  <button type="button" onclick="requestRandomNumbersSynchronous()" id="requestRandomNumbersSynchronousButton" name="requestRandomNumbersSynchronousButton" class="btn btn-primary">Request Random Numbers Synchronous</button>
-				   </div>
-				</div>
-			 </form>
+		         </form>
 			 
 			</div>
             <!-- /col-md
@@ -521,6 +516,19 @@
 	},
 	{
 		"inputs": [],
+		"name": "randomNumbersPerRando",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "replacementContractAddress",
 		"outputs": [
 			{
@@ -530,30 +538,6 @@
 			}
 		],
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "amountOfRandomNumbersToRequest",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256[]",
-				"name": "randomSeedArray",
-				"type": "uint256[]"
-			}
-		],
-		"name": "requestRandomNumbersSynchronous",
-		"outputs": [
-			{
-				"internalType": "uint256[]",
-				"name": "randomNumbersToReturn",
-				"type": "uint256[]"
-			}
-		],
-		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
@@ -651,6 +635,11 @@
 				"internalType": "struct RandomNumberRetailer.RequestCommitment",
 				"name": "rc",
 				"type": "tuple"
+			},
+			{
+				"internalType": "bool",
+				"name": "payWithRando",
+				"type": "bool"
 			}
 		],
 		"name": "requestRandomNumbersSynchronousUsingVRFv2Seed",
@@ -794,9 +783,9 @@
 		"stateMutability": "nonpayable",
 		"type": "function"
 	}
-];
+]; 
 		
-		const rnrContractAddress = '0xd058eA7e3DfE100775Ce954F15bB88257CC10191';
+		const rnrContractAddress = '0x4851eC074502ef706B98359b6ACF1C4314e92228';
 		const chainID = 11155111;
 	  
 	    async function connectWallet(){
@@ -870,51 +859,6 @@
 			else {
 				$('#connectWalletButtonHolder').css('display', '');
 			}
-		}
-		
-		async function requestRandomNumbersSynchronous(){
-			let amountOfRandomNumbersToRequest = prompt("How many random numbers do you want?");
-			
-			if (amountOfRandomNumbersToRequest == null){
-			    return;
-			}
-			
-			amountOfRandomNumbersToRequest = web3.utils.toBigInt(amountOfRandomNumbersToRequest);
-						
-			let randomSeedArrayLength = prompt("How many random seeds will you use?");
-			
-			if (randomSeedArrayLength == null){
-			    return;
-			}
-			
-			randomSeedArrayLength = Number(randomSeedArrayLength);
-			
-			let randomSeedArray = [];
-			
-			for(let i=0; i < randomSeedArrayLength; i++){
-			    randomSeedArray.push(
-				    web3.utils.hexToNumber(
-					    web3.utils.randomHex(32)
-					)
-				);
-			}
-			
-			const priceOfARandomNumberInWei = await window.rnrContract.methods.priceOfARandomNumberInWei().call();
-			const weiToPay = amountOfRandomNumbersToRequest * priceOfARandomNumberInWei;
-			
-			window.rnrContract.methods.requestRandomNumbersSynchronous(amountOfRandomNumbersToRequest, randomSeedArray).send({
-				'from': window.ethereumAddresses[0],
-				'value': weiToPay
-			})
-			.on('confirmation', function(confirmationNumber, receipt){
-			    if (confirmationNumber == 1){
-				    alert('requestRandomNumbersSynchronous successful!');
-				}
-			})
-			.on('error', function(error, receipt){
-			    alert('requestRandomNumbersSynchronous failed. Please try again.');
-			});
-			
 		}
 		
 		function pullIntFromSecp256k1Part(part){
@@ -1062,7 +1006,9 @@
 			const priceOfARandomNumberInWei = await window.rnrContract.methods.priceOfARandomNumberInWei().call();
 			const weiToPay = amountOfRandomNumbersToRequest * priceOfARandomNumberInWei;
 			
-			window.rnrContract.methods.requestRandomNumbersSynchronousUsingVRFv2Seed(amountOfRandomNumbersToRequest, proof, requestCommitment).send({
+                        const payWithRando = false;
+
+			window.rnrContract.methods.requestRandomNumbersSynchronousUsingVRFv2Seed(amountOfRandomNumbersToRequest, proof, requestCommitment, payWithRando).send({
 				'from': metamaskSender,
 				'value': weiToPay
 			})
