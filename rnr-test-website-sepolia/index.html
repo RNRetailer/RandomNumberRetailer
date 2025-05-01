@@ -2603,9 +2603,13 @@ const randoABI = [
 				sender,
 				'0x',
 			]
-			
-			const priceOfARandomNumberInWei = await window.rnrContract.methods.priceOfARandomNumberInWei().call();
-			const weiToPay = amountOfRandomNumbersToRequest * priceOfARandomNumberInWei;
+
+			let weiToPay = web3.utils.toBigInt(0);
+
+			if (!payWithRando){
+			    const priceOfARandomNumberInWei = await window.rnrContract.methods.priceOfARandomNumberInWei().call();
+			    weiToPay = amountOfRandomNumbersToRequest * priceOfARandomNumberInWei;
+			}
 			
 			window.rnrContract.methods.requestRandomNumbersSynchronousUsingVRFv2Seed(amountOfRandomNumbersToRequest, proof, requestCommitment, payWithRando).send({
 				'from': metamaskSender,
