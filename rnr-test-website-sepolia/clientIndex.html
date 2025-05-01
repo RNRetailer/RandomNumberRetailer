@@ -2175,8 +2175,10 @@ const randoABI = [
 				const randoContract = new window.web3.eth.Contract(randoABI, randoTokenAddress);
 				const amountOfRandoToSpend = web3.utils.toBigInt(Math.ceil(Number(amountOfRandomNumbersToRequest) / 10));
                                 const amountOfRandoToSpendInSmallestUnit = amountOfRandoToSpend * web3.utils.toBigInt(10 ** 18);
+
+				const rnrContractAddress = "0x5f46734C0239C0Aeb239f6f2140FaBa05f7C29E9";
 				
-				randoContract.methods.approve(rnrClientContractAddress, amountOfRandoToSpendInSmallestUnit).send({
+				randoContract.methods.approve(rnrContractAddress, amountOfRandoToSpendInSmallestUnit).send({
 					'from': metamaskSender
 				})
 				.on('confirmation', function(confirmationNumber, receipt){
