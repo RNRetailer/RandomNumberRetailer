@@ -2255,7 +2255,40 @@ const randoABI = [
 			]
 			
 			if (payWithRando){
+				async function preflightCheckFunction(fn, params){
+				    try {
+				      await fn.call(params);
+				      return true;
+				    } catch (callError) {
+	
+				      console.error("Transaction will fail:", callError);
+	
+				      if (callError.message) {
+				        console.error(
+				          "Revert reason:",
+				          callError.message
+				         )
+				      }
+	
+				      return false;
+				    }
+				 }
+				
                                 const weiToPay = web3.utils.toBigInt(0);
+
+				// Preflight check
+				let preflightCheck = await preflightCheckFunction(
+				  window.rnrClientContract.methods.requestRandomNumbersSynchronousUsingRando(amountOfRandomNumbersToRequest, proof, requestCommitment),
+				  {
+				    from: metamaskSender,
+				    value: weiToPay
+				  }
+				);
+	
+				if (preflightCheck === false) {
+				   alert("Error processing tx, check console");
+				   return;
+				}
 				
 				window.rnrClientContract.methods.requestRandomNumbersSynchronousUsingRando(amountOfRandomNumbersToRequest, proof, requestCommitment).send({
 					'from': metamaskSender,
