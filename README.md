@@ -7,9 +7,10 @@ Turning async to sync since 2024
 
 randomnumberretailer.eth
 
-Sepolia example client: https://sepolia.etherscan.io/address/0x601f6b7dde87d8e3e7325b2dc8194b2cbab7bf79#code (needs to be updated)
+Sepolia example client: https://sepolia.etherscan.io/address/0xC3928A1E9DBB393180Ad3da554A884390D16c393#code
 
-Test website: https://rnretailer.github.io/RandomNumberRetailer/rnr-test-website-sepolia/
+RNR Contract Test Website: https://rnretailer.github.io/RandomNumberRetailer/rnr-test-website-sepolia/
+RNR Example Client Test Website: https://rnretailer.github.io/RandomNumberRetailer/rnr-test-website-sepolia/clientIndex.html
 
 Sepolia smart contract: https://sepolia.etherscan.io/address/0x5f46734C0239C0Aeb239f6f2140FaBa05f7C29E9
 
