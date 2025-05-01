@@ -10,9 +10,10 @@ randomnumberretailer.eth
 Sepolia example client: https://sepolia.etherscan.io/address/0xC3928A1E9DBB393180Ad3da554A884390D16c393#code
 
 RNR Contract Test Website: https://rnretailer.github.io/RandomNumberRetailer/rnr-test-website-sepolia/
+
 RNR Example Client Test Website: https://rnretailer.github.io/RandomNumberRetailer/rnr-test-website-sepolia/clientIndex.html
 
-Sepolia smart contract: https://sepolia.etherscan.io/address/0x5f46734C0239C0Aeb239f6f2140FaBa05f7C29E9
+Sepolia smart contract: https://sepolia.etherscan.io/address/0xC235095838e55A28eC57468CEbBFAFB455F363E3
 
 Twitter: https://twitter.com/RNRetailer
 
