@@ -7,11 +7,11 @@ Turning async to sync since 2024
 
 randomnumberretailer.eth
 
-Sepolia example client: https://sepolia.etherscan.io/address/0x601f6b7dde87d8e3e7325b2dc8194b2cbab7bf79#code
+Sepolia example client: https://sepolia.etherscan.io/address/0x601f6b7dde87d8e3e7325b2dc8194b2cbab7bf79#code (needs to be updated)
 
 Test website: https://rnretailer.github.io/RandomNumberRetailer/rnr-test-website-sepolia/
 
-Sepolia smart contract: https://sepolia.etherscan.io/address/0xd058eA7e3DfE100775Ce954F15bB88257CC10191
+Sepolia smart contract: https://sepolia.etherscan.io/address/0x5f46734C0239C0Aeb239f6f2140FaBa05f7C29E9
 
 Twitter: https://twitter.com/RNRetailer
 
@@ -21,27 +21,7 @@ reddit: https://reddit.com/r/randomnumberretailer
 
 --
 
-For this method (the casual method):
-
-```
-function requestRandomNumbersSynchronous(
-
-uint256 amountOfRandomNumbersToRequest,
-
-uint256[] memory randomSeedArray
-
-)
-```
-
-It is useful in a few scenarios:
-
-1. Methods that are only callable by the contract owner / trusted parties who just need a truly random outcome for their own purposes.
-
-2. Public methods where there is no financial outcome on the line (picking what avatar you get, what team you're on, etc.)
-
---
-
-For anything more serious this method should be used (the advanced method):
+Here is the function to call to buy random numbers (you can use RANDO token or the chain's native token to buy them):
 
 ```
 function requestRandomNumbersSynchronousUsingVRFv2Seed(
@@ -50,7 +30,9 @@ uint256 amountOfRandomNumbersToRequest,
 
 Proof memory proof,
 
-RequestCommitment memory rc
+RequestCommitment memory rc,
+
+bool payWithRando
 
 )
 ```
