@@ -2525,7 +2525,7 @@ const randoABI = [
 			if (payWithRando){
 				const randoTokenAddress = '0xf0Be8f2232f1a048Bd6ded29e436c28acd732B04';
 				const randoContract = new window.web3.eth.Contract(randoABI, randoTokenAddress);
-				const amountOfRandoToSpend = amountOfRandomNumbersToRequest / web3.utils.toBigInt(10);
+				const amountOfRandoToSpend = web3.utils.toBigInt(Math.ceil(Number(amountOfRandomNumbersToRequest) / 10));
                                 const amountOfRandoToSpendInSmallestUnit = amountOfRandoToSpend * web3.utils.toBigInt(10 ** 18);
 				
 				randoContract.methods.approve(rnrContractAddress, amountOfRandoToSpendInSmallestUnit).send({
