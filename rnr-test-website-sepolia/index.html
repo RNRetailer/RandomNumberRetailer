@@ -2520,6 +2520,7 @@ const randoABI = [
 			randomSeedArrayLength = Number(randomSeedArrayLength);
 
 			const payWithRando = confirm('Do you want to pay with RANDO token? (otherwise you will pay with ETH)');
+			const metamaskSender = window.ethereumAddresses[0];
 
 			if (payWithRando){
 				const randoTokenAddress = '0xf0Be8f2232f1a048Bd6ded29e436c28acd732B04';
@@ -2542,9 +2543,7 @@ const randoABI = [
 		
 			const latestBlockNumber = await web3.eth.getBlockNumber();
 			const latestBlockNumberStr = latestBlockNumber.toString();
-			
-			const metamaskSender = window.ethereumAddresses[0];
-			
+					
 			const proofAndRequestCommitment = await getRandomNumberFromWASM(metamaskSender, randomSeedArrayLength, latestBlockNumberStr);
 			
 			// -------------------------------------------------------------------------------------
