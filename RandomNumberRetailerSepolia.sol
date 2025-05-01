@@ -121,9 +121,13 @@
 
 pragma solidity ^0.8.7;
 
-import "@chainlink/contracts/src/v0.8/ConfirmedOwner.sol";
+import "https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/access/ConfirmedOwner.sol";
 import "./VRF.sol";
 import "@openzeppelin/contracts/utils/Create2.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol";
+
+// Points to RANDO token
+IERC20 constant randoToken = IERC20(0xf0Be8f2232f1a048Bd6ded29e436c28acd732B04);
 
 // BlockhashStoreInterface is from Chainlink
 interface BlockhashStoreInterface {
@@ -145,6 +149,8 @@ contract RandomNumberRetailer is VRF, ConfirmedOwner
     address public replacementContractAddress = address(0);
     bool public contractIsPaused = false;
     uint8 public priceMultiplier = 5;
+
+    uint8 public randomNumbersPerRando = 10;
 
     error BlockhashNotInStore(uint256 blockNum);  // from Chainlink
     BlockhashStoreInterface public constant BLOCKHASH_STORE = BlockhashStoreInterface(0x1159E1889754a1F0862F8EC0E109F169aECBCD6f);  // from Chainlink
@@ -247,8 +253,9 @@ contract RandomNumberRetailer is VRF, ConfirmedOwner
 
     function requestRandomNumbersSynchronous(
         uint256 amountOfRandomNumbersToRequest, 
-        uint256[] memory randomSeedArray
-    ) public payable checkIfPaused checkIfDeprecated returns (uint256[] memory randomNumbersToReturn){
+        uint256[] memory randomSeedArray,
+        bool payWithRando
+    ) private checkIfPaused checkIfDeprecated returns (uint256[] memory randomNumbersToReturn){
         uint256 currentRandomNumbersArrayLength = randomNumbersArray.length;
 
         require(
@@ -261,10 +268,20 @@ contract RandomNumberRetailer is VRF, ConfirmedOwner
             "FAILURE: You requested more random numbers than we have available. Please check randomNumbersAvailable before making your request."
         );
 
-        require(
-            msg.value >= priceOfARandomNumberInWei * amountOfRandomNumbersToRequest,
-            "FAILURE: You did not pay enough ETH for that amount of random numbers."
-        );
+        if (payWithRando){
+            uint256 randoToTransfer = amountOfRandomNumbersToRequest * ((10 ** 18) / 10);
+
+            require(
+                randoToken.transferFrom(msg.sender, address(this), randoToTransfer), 
+                "FAILURE: Failed to transfer RANDO from user to RNR contract."
+            );
+        }
+        else{
+            require(
+                msg.value >= priceOfARandomNumberInWei * amountOfRandomNumbersToRequest,
+                "FAILURE: You did not pay enough ETH for that amount of random numbers."
+            );
+        }
 
         randomNumbersToReturn = new uint256[](amountOfRandomNumbersToRequest);
 
@@ -298,8 +315,10 @@ contract RandomNumberRetailer is VRF, ConfirmedOwner
     function requestRandomNumbersSynchronousUsingVRFv2Seed(
         uint256 amountOfRandomNumbersToRequest, 
         Proof memory proof, 
-        RequestCommitment memory rc
+        RequestCommitment memory rc,
+        bool payWithRando
     ) external payable checkIfPaused checkIfDeprecated returns (uint256[] memory randomNumbersToReturn){
+
       uint256 randomness;
 
       (, randomness) = getRandomnessFromProof(proof, rc);
@@ -312,7 +331,8 @@ contract RandomNumberRetailer is VRF, ConfirmedOwner
 
       randomNumbersToReturn = requestRandomNumbersSynchronous(
         amountOfRandomNumbersToRequest, 
-        randomSeedArray
+        randomSeedArray,
+        payWithRando
       );
 
       return randomNumbersToReturn;
@@ -448,7 +468,7 @@ contract Deployer {
       emit ContractDeployed(
         Create2.deploy(
             0, 
-            "RNR v1", 
+            "RNR v4", 
             type(RandomNumberRetailer).creationCode
         )
       );
