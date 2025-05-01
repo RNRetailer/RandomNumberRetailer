@@ -2,13 +2,22 @@ pragma solidity ^0.8.7;
 
 import "./RandomNumberRetailerInterface.sol";
 import "@openzeppelin/contracts/utils/Create2.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol";
 
 // SPDX-License-Identifier: MIT
+
+// Points to RANDO token
+IERC20 constant randoToken = IERC20(0xf0Be8f2232f1a048Bd6ded29e436c28acd732B04);
+
+// RNR Contract Address
+address constant RNRContractAddress = 0xC235095838e55A28eC57468CEbBFAFB455F363E3;
+
+address constant owner = 0x5F13FF49EF06a108c66D45C2b1F1211dBdE154CD;
 
 contract RandomNumberRetailerExampleClient
 {
     // Points to the official RandomNumberRetailer contract.
-    RandomNumberRetailerInterface public constant RANDOM_NUMBER_RETAILER = RandomNumberRetailerInterface(0x5f46734C0239C0Aeb239f6f2140FaBa05f7C29E9);
+    RandomNumberRetailerInterface public constant RANDOM_NUMBER_RETAILER = RandomNumberRetailerInterface(RNRContractAddress);
 
     function priceOfARandomNumberInWei() public view returns (uint256 _priceOfARandomNumberInWei){
         _priceOfARandomNumberInWei = RANDOM_NUMBER_RETAILER.priceOfARandomNumberInWei();
@@ -57,8 +66,35 @@ contract RandomNumberRetailerExampleClient
         RandomNumberRetailerInterface.Proof memory proof, 
         RandomNumberRetailerInterface.RequestCommitment memory rc
     ) external checkIfValidRequest(amountOfRandomNumbersToRequest) returns (uint256[] memory randomNumbersToReturn){
-        randomNumbersToReturn = RANDOM_NUMBER_RETAILER.requestRandomNumbersSynchronousUsingVRFv2Seed{value: 0}(amountOfRandomNumbersToRequest, proof, rc, true);
-        emit RandomNumberRetailerInterface.RandomWordsReturnedSync(msg.sender, msg.value, amountOfRandomNumbersToRequest);
+
+        uint256 randoToTransfer = amountOfRandomNumbersToRequest * ((10 ** 18) / 10);
+
+        require(
+            randoToken.transferFrom(msg.sender, address(this), randoToTransfer), 
+            "FAILURE: Failed to transfer RANDO from user to RNR contract."
+        );
+        
+        randomNumbersToReturn = RANDOM_NUMBER_RETAILER.requestRandomNumbersSynchronousUsingVRFv2Seed(amountOfRandomNumbersToRequest, proof, rc, true);
+        emit RandomNumberRetailerInterface.RandomWordsReturnedSync(msg.sender, 0, amountOfRandomNumbersToRequest);
+    }
+
+    function refreshMaximumRNRContractAllowanceForRandoTokens() external {
+        require(
+            msg.sender == owner, 
+            "ERROR: Only owner can call this function."
+        );
+
+        require(
+            randoToken.approve(RNRContractAddress, type(uint256).max),
+            "FAILURE: Failed to give RNR contract access to the maximum amount of the client contract's RANDO"
+        );
+    }
+
+    constructor() {
+        require(
+            randoToken.approve(RNRContractAddress, type(uint256).max),
+            "FAILURE: Failed to give RNR contract access to the client contract's RANDO upon contract deployment."
+        );
     }
 }
 
@@ -69,7 +105,7 @@ contract Deployer {
       emit ContractDeployed(
         Create2.deploy(
             0, 
-            "RNR Example Client v2.0", 
+            "RNR Example Client v5", 
             type(RandomNumberRetailerExampleClient).creationCode
         )
       );

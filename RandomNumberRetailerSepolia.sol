@@ -125,6 +125,7 @@ import "https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src
 import "./VRF.sol";
 import "@openzeppelin/contracts/utils/Create2.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 // Points to RANDO token
 IERC20 constant randoToken = IERC20(0xf0Be8f2232f1a048Bd6ded29e436c28acd732B04);
@@ -134,7 +135,7 @@ interface BlockhashStoreInterface {
     function getBlockhash(uint256 number) external view returns (bytes32);
 }
 
-contract RandomNumberRetailer is VRF, ConfirmedOwner
+contract RandomNumberRetailer is VRF, ConfirmedOwner, ReentrancyGuard
 {
     uint256 public minimumHealthyLengthOfRandomNumbersArray = 5000;
     uint256 public priceOfARandomNumberInWei = 439;
@@ -317,7 +318,7 @@ contract RandomNumberRetailer is VRF, ConfirmedOwner
         Proof memory proof, 
         RequestCommitment memory rc,
         bool payWithRando
-    ) external payable checkIfPaused checkIfDeprecated returns (uint256[] memory randomNumbersToReturn){
+    ) external payable nonReentrant checkIfPaused checkIfDeprecated returns (uint256[] memory randomNumbersToReturn){
 
       uint256 randomness;
 
@@ -468,7 +469,7 @@ contract Deployer {
       emit ContractDeployed(
         Create2.deploy(
             0, 
-            "RNR v4", 
+            "RNR v5", 
             type(RandomNumberRetailer).creationCode
         )
       );
