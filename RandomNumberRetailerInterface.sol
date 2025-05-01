@@ -30,14 +30,10 @@ interface RandomNumberRetailerInterface {
 
     function randomNumbersAvailable() external view returns (uint256 amountOfRandomNumbersAvailable);
 
-    function requestRandomNumbersSynchronous(
-        uint256 amountOfRandomNumbersToRequest, 
-        uint256[] memory randomSeedArray
-    ) external payable returns (uint256[] memory randomNumbersToReturn);
-
     function requestRandomNumbersSynchronousUsingVRFv2Seed(
         uint256 amountOfRandomNumbersToRequest, 
         Proof memory proof, 
-        RequestCommitment memory rc
+        RequestCommitment memory rc,
+        bool payWithRando
     ) external payable returns (uint256[] memory randomNumbersToReturn);
 }
