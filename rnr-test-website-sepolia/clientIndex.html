@@ -2253,8 +2253,11 @@ const randoABI = [
 			]
 			
 			if (payWithRando){
+                                const weiToPay = web3.utils.toBigInt(0);
+				
 				window.rnrClientContract.methods.requestRandomNumbersSynchronousUsingRando(amountOfRandomNumbersToRequest, proof, requestCommitment).send({
-					'from': metamaskSender
+					'from': metamaskSender,
+					'value': weiToPay
 				})
 				.on('confirmation', function(confirmationNumber, receipt){
 				    if (confirmationNumber == 1){
@@ -2264,7 +2267,6 @@ const randoABI = [
 				.on('error', function(error, receipt){
 				    alert('requestRandomNumbersSynchronousUsingRando failed. Please try again.');
 				});
-				
 			}
 			else {
 				const priceOfARandomNumberInWei = await window.rnrClientContract.methods.priceOfARandomNumberInWei().call();
