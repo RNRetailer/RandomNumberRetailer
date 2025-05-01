@@ -2014,7 +2014,7 @@ const randoABI = [
 		"type": "function"
 	}
 ];
-		const rnrClientContractAddress = '0x614d7B7B61D7C4473De39e58b1aD20C69E770dc5';
+		const rnrClientContractAddress = '0xC3928A1E9DBB393180Ad3da554A884390D16c393';
 		const chainID = 11155111;
 	  
 	    async function connectWallet(){
@@ -2175,10 +2175,8 @@ const randoABI = [
 				const randoContract = new window.web3.eth.Contract(randoABI, randoTokenAddress);
 				const amountOfRandoToSpend = web3.utils.toBigInt(Math.ceil(Number(amountOfRandomNumbersToRequest) / 10));
                                 const amountOfRandoToSpendInSmallestUnit = amountOfRandoToSpend * web3.utils.toBigInt(10 ** 18);
-
-				const rnrContractAddress = "0x5f46734C0239C0Aeb239f6f2140FaBa05f7C29E9";
 				
-				randoContract.methods.approve(rnrContractAddress, amountOfRandoToSpendInSmallestUnit).send({
+				randoContract.methods.approve(rnrClientContractAddress, amountOfRandoToSpendInSmallestUnit).send({
 					'from': metamaskSender
 				})
 				.on('confirmation', function(confirmationNumber, receipt){
