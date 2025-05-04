@@ -11,9 +11,13 @@ randomnumberretailer.eth
 
 SONIC BLAZE
 
+Example client: https://testnet.sonicscan.org/address/0x7a76ca9970fd50855cc472d3bd869b1e077e42f8
+
 RNR Contract Test Website: https://rnretailer.github.io/RandomNumberRetailer/rnr-test-website-sonic-blaze/
 
 RNR Example Client Test Website: https://rnretailer.github.io/RandomNumberRetailer/rnr-test-website-sonic-blaze/clientIndex.html
+
+Smart contract: https://testnet.sonicscan.org/address/0x91b80393fd73775f48553e4f54c23edb114463a0
 
 --
 
