@@ -1,0 +1,2291 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <!--[if IE]>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <![endif]-->
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- Page title -->
+      <title>Sonic Blaze RNR Client Test</title>
+      <!--[if lt IE 9]>
+      <script src="js/respond.js"></script>
+      <![endif]-->
+      <!-- Bootstrap Core CSS -->
+      <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+      <!-- Icon fonts -->
+      <link href="fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+      <link href="fonts/flaticons/flaticon.css" rel="stylesheet" type="text/css">
+      <link href="fonts/glyphicons/bootstrap-glyphicons.css" rel="stylesheet" type="text/css">
+      <!-- Google fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Lato:400,800" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi" rel="stylesheet">
+      <!-- Style CSS -->
+      <link href="css/style.css" rel="stylesheet">
+      <!-- Plugins CSS -->
+      <link rel="stylesheet" href="css/plugins.css">
+      <!-- Color Style CSS -->
+      <link href="styles/maincolors.css" rel="stylesheet">
+      <!-- Favicons-->
+      <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <script src="js/wasm_exec.js"></script>
+   </head>
+   <body id="page-top">
+      <!-- Preloader -->
+      <div id="preloader">
+         <div class="spinner">
+            <div class="bounce1"></div>
+         </div>
+      </div>
+      <!-- Preloader ends -->
+      <nav class="navbar navbar-custom navbar-fixed-top">
+         <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-brand-centered">
+               <i class="fa fa-bars"></i>
+               </button>
+               <div class="navbar-brand navbar-brand-centered page-scroll">
+                  <a href="#page-top">
+                     <!-- logo  -->
+                     <img src="img/logo.png" class="img-responsive" alt="">
+                  </a>
+               </div>
+            </div>
+            <!--/navbar-header -->
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar-brand-centered">
+            </div>
+            <!-- /.navbar-collapse -->
+         </div>
+         <!-- /.container -->
+      </nav>
+      <!-- /navbar ends -->
+      <!-- ==== Slider ==== -->
+      <div class="container-fluid parallax-header"  
+         data-stellar-background-ratio="0.5">
+         <div class="container">
+            <div class="col-sm-5 text-light text-center bg-darkcolor" data--100-start="margin-top:100px;transform:scale(1)" data--100-top="margin-top:0px;transform:scale(0.7);">
+               <h1>Sonic Blaze RNR Example Client Test Panel</h1>
+               <!--the div below is hidden on small screens  -->
+               <div class="hidden-xs">
+                  <p class="header-p">
+					Use this Sonic Blaze Random Number Retailer Test Panel to test the Sonic Blaze Random Number Retailer example client smart contract.
+				  </p>
+                  <a class="btn btn-primary " href="#admin-panel-index">Go To Sonic Blaze RNR Example Client Test Panel</a>
+               </div>
+               <!--/d-none  -->
+            </div>
+         </div>
+      </div>
+      <!-- /container-fluid -->  
+      <!-- SVG Curve Up -->
+      <svg id="curveUp" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 100 100" preserveAspectRatio="none" fill="#fff">
+         <path d="M0 100 C 20 0 50 0 100 100 Z"/>
+      </svg>
+      <!-- Section Services-index -->
+      <section id="admin-panel-index" class="bg-pattern" data-bottom-top="background-position: 0px 10%,99% 10%;"
+         data-top-bottom="background-position: 0px 80%,99% 80%;">
+         <!-- container -->
+         <div class="container">
+            <div class="section-heading">
+               <h2>Sonic Blaze RNR Example Client Test Panel</h2>
+            </div>
+            <!-- /section-heading-->
+            <div class="col-md-7">
+			 <p style="margin-bottom:30px;">
+			 <h6>Connect MetaMask then click the buttons to perform actions.</h6>
+			 </p>
+			
+			 <form class="form-horizontal">	
+				<!-- Button -->
+				<div id="connectWalletButtonHolder" class="form-group" style="display:none;">
+				   <div class="col-md-6">
+					  <button type="button" onclick="connectWallet()" id="connectWalletButton" name="singlebutton" class="btn btn-primary">Connect Wallet</button>
+				   </div>
+				</div>
+		         </form>
+			 
+			</div>
+            <!-- /col-md
+            <div class="col-md-5">
+               <img src="img/servicesintro.png" class="img-responsive" alt="">
+            </div>
+             /col-md-->
+		
+		 <form class="form-horizontal">	
+			<!-- Button -->
+			<div class="form-group" style="margin-bottom:15px;">
+			   <div class="col-md-6" style="margin-top:15px;">
+				  <button type="button" onclick="requestRandomNumbersSynchronousUsingVRFv2Seed()" id="requestRandomNumbersSynchronousUsingVRFv2SeedButton" name="requestRandomNumbersSynchronousUsingVRFv2SeedButton" class="btn btn-primary">Request Random Numbers Synchronous Using VRF v2 Seed</button>
+			   </div>
+			</div>
+		 </form>
+	</div>
+    <!-- /container-->
+	
+	</section>
+         
+      <!-- /footer ends -->
+      <!-- Core JavaScript Files -->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <!-- Main Js -->
+      <script src="js/main.js"></script>
+      <!-- Contact form -->
+      <script src="js/contact.js"></script>
+      <!--Other Plugins -->
+      <script src="js/plugins.js"></script>
+      <!-- Prefix free CSS -->
+      <script src="js/prefixfree.js"></script>
+      <!--Mail Chimp validator -->
+      <script src='js/mc-validate.js'></script>	  
+      <!-- Open street maps-->
+      <script src="js/map.js"></script>
+	  
+	  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+
+	  <script>
+	    const abi = [
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "requestor",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "weiPaid",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "amountOfRandomNumbersReturned",
+				"type": "uint256"
+			}
+		],
+		"name": "RandomWordsReturnedSync",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "RANDOM_NUMBER_RETAILER",
+		"outputs": [
+			{
+				"internalType": "contract RandomNumberRetailerInterface",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "priceOfARandomNumberInWei",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "_priceOfARandomNumberInWei",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "randomNumbersAvailable",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "amountOfRandomNumbersAvailable",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "amountOfRandomNumbersToRequest",
+				"type": "uint256"
+			},
+			{
+				"components": [
+					{
+						"internalType": "uint256[2]",
+						"name": "pk",
+						"type": "uint256[2]"
+					},
+					{
+						"internalType": "uint256[2]",
+						"name": "gamma",
+						"type": "uint256[2]"
+					},
+					{
+						"internalType": "uint256",
+						"name": "c",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "s",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "seed",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "uWitness",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256[2]",
+						"name": "cGammaWitness",
+						"type": "uint256[2]"
+					},
+					{
+						"internalType": "uint256[2]",
+						"name": "sHashWitness",
+						"type": "uint256[2]"
+					},
+					{
+						"internalType": "uint256",
+						"name": "zInv",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct RandomNumberRetailerInterface.Proof",
+				"name": "proof",
+				"type": "tuple"
+			},
+			{
+				"components": [
+					{
+						"internalType": "uint64",
+						"name": "blockNum",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint256",
+						"name": "subId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint32",
+						"name": "callbackGasLimit",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint32",
+						"name": "numWords",
+						"type": "uint32"
+					},
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "extraArgs",
+						"type": "bytes"
+					}
+				],
+				"internalType": "struct RandomNumberRetailerInterface.RequestCommitment",
+				"name": "rc",
+				"type": "tuple"
+			}
+		],
+		"name": "requestRandomNumbersSynchronousUsingNativeToken",
+		"outputs": [
+			{
+				"internalType": "uint256[]",
+				"name": "randomNumbersToReturn",
+				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "amountOfRandomNumbersToRequest",
+				"type": "uint256"
+			},
+			{
+				"components": [
+					{
+						"internalType": "uint256[2]",
+						"name": "pk",
+						"type": "uint256[2]"
+					},
+					{
+						"internalType": "uint256[2]",
+						"name": "gamma",
+						"type": "uint256[2]"
+					},
+					{
+						"internalType": "uint256",
+						"name": "c",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "s",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "seed",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "uWitness",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256[2]",
+						"name": "cGammaWitness",
+						"type": "uint256[2]"
+					},
+					{
+						"internalType": "uint256[2]",
+						"name": "sHashWitness",
+						"type": "uint256[2]"
+					},
+					{
+						"internalType": "uint256",
+						"name": "zInv",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct RandomNumberRetailerInterface.Proof",
+				"name": "proof",
+				"type": "tuple"
+			},
+			{
+				"components": [
+					{
+						"internalType": "uint64",
+						"name": "blockNum",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint256",
+						"name": "subId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint32",
+						"name": "callbackGasLimit",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint32",
+						"name": "numWords",
+						"type": "uint32"
+					},
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "extraArgs",
+						"type": "bytes"
+					}
+				],
+				"internalType": "struct RandomNumberRetailerInterface.RequestCommitment",
+				"name": "rc",
+				"type": "tuple"
+			}
+		],
+		"name": "requestRandomNumbersSynchronousUsingRando",
+		"outputs": [
+			{
+				"internalType": "uint256[]",
+				"name": "randomNumbersToReturn",
+				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "payable",
+		"type": "function"
+	}
+];
+
+const randoABI = [
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "allowance",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "needed",
+				"type": "uint256"
+			}
+		],
+		"name": "ERC20InsufficientAllowance",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "balance",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "needed",
+				"type": "uint256"
+			}
+		],
+		"name": "ERC20InsufficientBalance",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "approver",
+				"type": "address"
+			}
+		],
+		"name": "ERC20InvalidApprover",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "receiver",
+				"type": "address"
+			}
+		],
+		"name": "ERC20InvalidReceiver",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			}
+		],
+		"name": "ERC20InvalidSender",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			}
+		],
+		"name": "ERC20InvalidSpender",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "InvalidDelegate",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "InvalidEndpointCall",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "InvalidLocalDecimals",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes",
+				"name": "options",
+				"type": "bytes"
+			}
+		],
+		"name": "InvalidOptions",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "LzTokenUnavailable",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint32",
+				"name": "eid",
+				"type": "uint32"
+			}
+		],
+		"name": "NoPeer",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "msgValue",
+				"type": "uint256"
+			}
+		],
+		"name": "NotEnoughNative",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			}
+		],
+		"name": "OnlyEndpoint",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint32",
+				"name": "eid",
+				"type": "uint32"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "sender",
+				"type": "bytes32"
+			}
+		],
+		"name": "OnlyPeer",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "OnlySelf",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			}
+		],
+		"name": "OwnableInvalidOwner",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "OwnableUnauthorizedAccount",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "token",
+				"type": "address"
+			}
+		],
+		"name": "SafeERC20FailedOperation",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes",
+				"name": "result",
+				"type": "bytes"
+			}
+		],
+		"name": "SimulationResult",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "amountLD",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "minAmountLD",
+				"type": "uint256"
+			}
+		],
+		"name": "SlippageExceeded",
+		"type": "error"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "Approval",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint32",
+						"name": "eid",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint16",
+						"name": "msgType",
+						"type": "uint16"
+					},
+					{
+						"internalType": "bytes",
+						"name": "options",
+						"type": "bytes"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct EnforcedOptionParam[]",
+				"name": "_enforcedOptions",
+				"type": "tuple[]"
+			}
+		],
+		"name": "EnforcedOptionSet",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "inspector",
+				"type": "address"
+			}
+		],
+		"name": "MsgInspectorSet",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "guid",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint32",
+				"name": "srcEid",
+				"type": "uint32"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "toAddress",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "amountReceivedLD",
+				"type": "uint256"
+			}
+		],
+		"name": "OFTReceived",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "guid",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint32",
+				"name": "dstEid",
+				"type": "uint32"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "fromAddress",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "amountSentLD",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "amountReceivedLD",
+				"type": "uint256"
+			}
+		],
+		"name": "OFTSent",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "previousOwner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "OwnershipTransferred",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint32",
+				"name": "eid",
+				"type": "uint32"
+			},
+			{
+				"indexed": false,
+				"internalType": "bytes32",
+				"name": "peer",
+				"type": "bytes32"
+			}
+		],
+		"name": "PeerSet",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "preCrimeAddress",
+				"type": "address"
+			}
+		],
+		"name": "PreCrimeSet",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "Transfer",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "SEND",
+		"outputs": [
+			{
+				"internalType": "uint16",
+				"name": "",
+				"type": "uint16"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "SEND_AND_CALL",
+		"outputs": [
+			{
+				"internalType": "uint16",
+				"name": "",
+				"type": "uint16"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint32",
+						"name": "srcEid",
+						"type": "uint32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "sender",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint64",
+						"name": "nonce",
+						"type": "uint64"
+					}
+				],
+				"internalType": "struct Origin",
+				"name": "origin",
+				"type": "tuple"
+			}
+		],
+		"name": "allowInitializePath",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			}
+		],
+		"name": "allowance",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "approvalRequired",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "pure",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "approve",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint32",
+				"name": "_eid",
+				"type": "uint32"
+			},
+			{
+				"internalType": "uint16",
+				"name": "_msgType",
+				"type": "uint16"
+			},
+			{
+				"internalType": "bytes",
+				"name": "_extraOptions",
+				"type": "bytes"
+			}
+		],
+		"name": "combineOptions",
+		"outputs": [
+			{
+				"internalType": "bytes",
+				"name": "",
+				"type": "bytes"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "decimalConversionRate",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "decimals",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "endpoint",
+		"outputs": [
+			{
+				"internalType": "contract ILayerZeroEndpointV2",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint32",
+				"name": "eid",
+				"type": "uint32"
+			},
+			{
+				"internalType": "uint16",
+				"name": "msgType",
+				"type": "uint16"
+			}
+		],
+		"name": "enforcedOptions",
+		"outputs": [
+			{
+				"internalType": "bytes",
+				"name": "enforcedOption",
+				"type": "bytes"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint32",
+						"name": "srcEid",
+						"type": "uint32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "sender",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint64",
+						"name": "nonce",
+						"type": "uint64"
+					}
+				],
+				"internalType": "struct Origin",
+				"name": "",
+				"type": "tuple"
+			},
+			{
+				"internalType": "bytes",
+				"name": "",
+				"type": "bytes"
+			},
+			{
+				"internalType": "address",
+				"name": "_sender",
+				"type": "address"
+			}
+		],
+		"name": "isComposeMsgSender",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint32",
+				"name": "_eid",
+				"type": "uint32"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "_peer",
+				"type": "bytes32"
+			}
+		],
+		"name": "isPeer",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint32",
+						"name": "srcEid",
+						"type": "uint32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "sender",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint64",
+						"name": "nonce",
+						"type": "uint64"
+					}
+				],
+				"internalType": "struct Origin",
+				"name": "_origin",
+				"type": "tuple"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "_guid",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "bytes",
+				"name": "_message",
+				"type": "bytes"
+			},
+			{
+				"internalType": "address",
+				"name": "_executor",
+				"type": "address"
+			},
+			{
+				"internalType": "bytes",
+				"name": "_extraData",
+				"type": "bytes"
+			}
+		],
+		"name": "lzReceive",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"components": [
+					{
+						"components": [
+							{
+								"internalType": "uint32",
+								"name": "srcEid",
+								"type": "uint32"
+							},
+							{
+								"internalType": "bytes32",
+								"name": "sender",
+								"type": "bytes32"
+							},
+							{
+								"internalType": "uint64",
+								"name": "nonce",
+								"type": "uint64"
+							}
+						],
+						"internalType": "struct Origin",
+						"name": "origin",
+						"type": "tuple"
+					},
+					{
+						"internalType": "uint32",
+						"name": "dstEid",
+						"type": "uint32"
+					},
+					{
+						"internalType": "address",
+						"name": "receiver",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "guid",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "executor",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "message",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "extraData",
+						"type": "bytes"
+					}
+				],
+				"internalType": "struct InboundPacket[]",
+				"name": "_packets",
+				"type": "tuple[]"
+			}
+		],
+		"name": "lzReceiveAndRevert",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint32",
+						"name": "srcEid",
+						"type": "uint32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "sender",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint64",
+						"name": "nonce",
+						"type": "uint64"
+					}
+				],
+				"internalType": "struct Origin",
+				"name": "_origin",
+				"type": "tuple"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "_guid",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "bytes",
+				"name": "_message",
+				"type": "bytes"
+			},
+			{
+				"internalType": "address",
+				"name": "_executor",
+				"type": "address"
+			},
+			{
+				"internalType": "bytes",
+				"name": "_extraData",
+				"type": "bytes"
+			}
+		],
+		"name": "lzReceiveSimulate",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "msgInspector",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "name",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint32",
+				"name": "",
+				"type": "uint32"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"name": "nextNonce",
+		"outputs": [
+			{
+				"internalType": "uint64",
+				"name": "nonce",
+				"type": "uint64"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "oApp",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "oAppVersion",
+		"outputs": [
+			{
+				"internalType": "uint64",
+				"name": "senderVersion",
+				"type": "uint64"
+			},
+			{
+				"internalType": "uint64",
+				"name": "receiverVersion",
+				"type": "uint64"
+			}
+		],
+		"stateMutability": "pure",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "oftVersion",
+		"outputs": [
+			{
+				"internalType": "bytes4",
+				"name": "interfaceId",
+				"type": "bytes4"
+			},
+			{
+				"internalType": "uint64",
+				"name": "version",
+				"type": "uint64"
+			}
+		],
+		"stateMutability": "pure",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint32",
+				"name": "eid",
+				"type": "uint32"
+			}
+		],
+		"name": "peers",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "peer",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "preCrime",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint32",
+						"name": "dstEid",
+						"type": "uint32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "to",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountLD",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "minAmountLD",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "extraOptions",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "composeMsg",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "oftCmd",
+						"type": "bytes"
+					}
+				],
+				"internalType": "struct SendParam",
+				"name": "_sendParam",
+				"type": "tuple"
+			}
+		],
+		"name": "quoteOFT",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "minAmountLD",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "maxAmountLD",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct OFTLimit",
+				"name": "oftLimit",
+				"type": "tuple"
+			},
+			{
+				"components": [
+					{
+						"internalType": "int256",
+						"name": "feeAmountLD",
+						"type": "int256"
+					},
+					{
+						"internalType": "string",
+						"name": "description",
+						"type": "string"
+					}
+				],
+				"internalType": "struct OFTFeeDetail[]",
+				"name": "oftFeeDetails",
+				"type": "tuple[]"
+			},
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "amountSentLD",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountReceivedLD",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct OFTReceipt",
+				"name": "oftReceipt",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint32",
+						"name": "dstEid",
+						"type": "uint32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "to",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountLD",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "minAmountLD",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "extraOptions",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "composeMsg",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "oftCmd",
+						"type": "bytes"
+					}
+				],
+				"internalType": "struct SendParam",
+				"name": "_sendParam",
+				"type": "tuple"
+			},
+			{
+				"internalType": "bool",
+				"name": "_payInLzToken",
+				"type": "bool"
+			}
+		],
+		"name": "quoteSend",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "nativeFee",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lzTokenFee",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct MessagingFee",
+				"name": "msgFee",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "renounceOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint32",
+						"name": "dstEid",
+						"type": "uint32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "to",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountLD",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "minAmountLD",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "extraOptions",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "composeMsg",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "oftCmd",
+						"type": "bytes"
+					}
+				],
+				"internalType": "struct SendParam",
+				"name": "_sendParam",
+				"type": "tuple"
+			},
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "nativeFee",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lzTokenFee",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct MessagingFee",
+				"name": "_fee",
+				"type": "tuple"
+			},
+			{
+				"internalType": "address",
+				"name": "_refundAddress",
+				"type": "address"
+			}
+		],
+		"name": "send",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "bytes32",
+						"name": "guid",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint64",
+						"name": "nonce",
+						"type": "uint64"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "nativeFee",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "lzTokenFee",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct MessagingFee",
+						"name": "fee",
+						"type": "tuple"
+					}
+				],
+				"internalType": "struct MessagingReceipt",
+				"name": "msgReceipt",
+				"type": "tuple"
+			},
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "amountSentLD",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountReceivedLD",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct OFTReceipt",
+				"name": "oftReceipt",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_delegate",
+				"type": "address"
+			}
+		],
+		"name": "setDelegate",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint32",
+						"name": "eid",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint16",
+						"name": "msgType",
+						"type": "uint16"
+					},
+					{
+						"internalType": "bytes",
+						"name": "options",
+						"type": "bytes"
+					}
+				],
+				"internalType": "struct EnforcedOptionParam[]",
+				"name": "_enforcedOptions",
+				"type": "tuple[]"
+			}
+		],
+		"name": "setEnforcedOptions",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_msgInspector",
+				"type": "address"
+			}
+		],
+		"name": "setMsgInspector",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint32",
+				"name": "_eid",
+				"type": "uint32"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "_peer",
+				"type": "bytes32"
+			}
+		],
+		"name": "setPeer",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_preCrime",
+				"type": "address"
+			}
+		],
+		"name": "setPreCrime",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "sharedDecimals",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "symbol",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "token",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "totalSupply",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "transfer",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "transferFrom",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+];
+		const rnrClientContractAddress = '0x7a76CA9970fd50855cc472d3BD869b1e077e42f8';
+		const chainID = 57054;
+	  
+	    async function connectWallet(){
+		  if (window.ethereum) {
+			window.ethereumAddresses = await window.ethereum.request({method: 'eth_requestAccounts'});
+			window.web3 = new Web3(window.ethereum);
+			await switchNetwork(chainID);
+			window.rnrClientContract = new window.web3.eth.Contract(abi, rnrClientContractAddress);
+			$('#connectWalletButtonHolder').css('display', 'none');
+			return true;
+		  }
+		  alert("Please install MetaMask to use this website. Check the How To Play page if you don't know how. Thanks!");
+		  return false;
+		}
+		
+		async function switchNetwork(chainId){
+			const currentChainId = await web3.eth.getChainId();
+			
+			if (currentChainId != chainId){
+				try {
+					await ethereum.request({
+						method:'wallet_switchEthereumChain',
+						params: [{chainId: Web3.utils.toHex(chainId)}]
+					});
+					console.log(`switched to chainid : ${chainId} succesfully`);
+					return true;
+				}catch(err){
+					console.log(`error occured while switching chain to chainId ${chainId}, err: ${err.message} code: ${err.code}`);
+					return false;
+				}
+			}
+			else{
+			    return true;
+			}
+                }
+		
+		window.onload = (event) => {
+		    isConnected();
+		}
+
+		function sleep(ms) {
+			return new Promise(resolve => setTimeout(resolve, ms));
+		}
+		
+		async function metamaskAccountsExist(){
+			if (window.ethereum){
+				const accounts = await window.ethereum.request({method: 'eth_accounts'}); 
+
+				if (accounts.length) {
+					return true;
+				} 
+				else {
+					return false;
+				}
+			}
+			else {
+				return false;
+			}
+		}
+            
+	    async function isConnected() {
+			const doAccountsExist = await metamaskAccountsExist();
+		
+		    if (doAccountsExist){
+				console.log(`You're connected to MetaMask`);
+				window.ethereumAddresses = await window.ethereum.request({method: 'eth_requestAccounts'});
+			    window.web3 = new Web3(window.ethereum);
+				await switchNetwork(chainID);
+			    window.rnrClientContract = new window.web3.eth.Contract(abi, rnrClientContractAddress);
+			}
+			else {
+				$('#connectWalletButtonHolder').css('display', '');
+			}
+		}
+		
+		function pullIntFromSecp256k1Part(part){
+			const closingBracketIndex = part.indexOf('}');
+			const hexString = '0x' + part.substring(0, closingBracketIndex);
+			
+			return web3.utils.hexToNumber(
+			    hexString
+			);
+		}
+		
+		function convertSecp256k1To2TupleOfInts(secpString){
+		    const parts = secpString.split('{');
+			
+			return [
+				pullIntFromSecp256k1Part(parts[2]),
+				pullIntFromSecp256k1Part(parts[3])
+			];
+		}
+		
+		async function getRandomNumberFromWASM(metamaskSender, randomSeedArrayLength, latestBlockNumber) {
+			try {
+				const block = await web3.eth.getBlock(latestBlockNumber);
+				const blockHash = block.hash;
+				const password = 'FJFJDJ37837373@#@#@#@#';
+				const subID = 9715;
+				const cbsGasLimit = 1000000;
+				const numWorkers = 1;
+				console.log('About to create a go object')
+				const go = new Go();
+				console.log('Successfully created a go object')
+				const wasmModule = await WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject);
+				console.log('Successfully instantiated wasm')
+				go.run(wasmModule.instance);
+				console.log('Successfully ran module instance')
+
+				const result = generate(
+							1,
+							password,
+							metamaskSender,
+							subID,
+							blockHash,
+							latestBlockNumber,
+							cbsGasLimit,
+							randomSeedArrayLength,
+							numWorkers);
+							
+				const start = result.lastIndexOf('[[');
+				const end = result.lastIndexOf(']]');
+
+				if (start === -1 || end === -1) {
+					throw new Error("Invalid JSON format in text");
+				}
+
+				const JSONString = result.substring(start, end + 2);
+				return JSON.parse(JSONString)[0];
+			} catch (err) {
+				console.error("Failed to load WASM module or process result:", err);
+				throw err;
+			}
+		}
+		
+		async function requestRandomNumbersSynchronousUsingVRFv2Seed(){
+			let amountOfRandomNumbersToRequest = prompt("How many random numbers do you want?");
+			
+			if (amountOfRandomNumbersToRequest == null){
+			    return;
+			}
+			
+			amountOfRandomNumbersToRequest = web3.utils.toBigInt(amountOfRandomNumbersToRequest);
+			
+			let randomSeedArrayLength = prompt("How many random seeds will you use?");
+			
+			if (randomSeedArrayLength == null){
+			    return;
+			}
+			
+			randomSeedArrayLength = Number(randomSeedArrayLength);
+
+			const payWithRando = confirm('Do you want to pay with RANDO token? (otherwise you will pay with ETH)');
+			const metamaskSender = window.ethereumAddresses[0];
+
+			if (payWithRando){
+				const randoTokenAddress = '0x8BDe81Dd5e30b058b71362b50faD06e3fdACE640';
+				const randoContract = new window.web3.eth.Contract(randoABI, randoTokenAddress);
+				const amountOfRandoToSpend = web3.utils.toBigInt(Math.ceil(Number(amountOfRandomNumbersToRequest) / 10));
+                                const amountOfRandoToSpendInSmallestUnit = amountOfRandoToSpend * web3.utils.toBigInt(10 ** 18);
+				
+				randoContract.methods.approve(rnrClientContractAddress, amountOfRandoToSpendInSmallestUnit).send({
+					'from': metamaskSender
+				})
+				.on('confirmation', function(confirmationNumber, receipt){
+					if (confirmationNumber == 1){
+					    alert('RANDO spending approval successful!');
+					}
+				})
+				.on('error', function(error, receipt){
+					alert('RANDO spending approval failed. Please try again.');
+				});
+			}
+		
+			const latestBlockNumber = await web3.eth.getBlockNumber();
+			const latestBlockNumberStr = latestBlockNumber.toString();
+					
+			const proofAndRequestCommitment = await getRandomNumberFromWASM(metamaskSender, randomSeedArrayLength, latestBlockNumberStr);
+			
+			// -------------------------------------------------------------------------------------
+						
+			const pk = convertSecp256k1To2TupleOfInts(proofAndRequestCommitment[10]);
+			const gamma = convertSecp256k1To2TupleOfInts(proofAndRequestCommitment[11]);
+			const c = web3.utils.toBigInt(proofAndRequestCommitment[12]);
+			const s = web3.utils.toBigInt(proofAndRequestCommitment[13]);
+			const seed = proofAndRequestCommitment[4];
+			const uWitness = proofAndRequestCommitment[16];
+			const cGammaWitness = convertSecp256k1To2TupleOfInts(proofAndRequestCommitment[17]);
+			const sHashWitness = convertSecp256k1To2TupleOfInts(proofAndRequestCommitment[18]);
+			const zInv = web3.utils.toBigInt(proofAndRequestCommitment[19]);
+			
+			const blockNum = web3.utils.toBigInt(proofAndRequestCommitment[6]);
+			const subId = web3.utils.toBigInt(proofAndRequestCommitment[2]);
+			const callbackGasLimit = web3.utils.toBigInt(proofAndRequestCommitment[7]);
+			const numWords = web3.utils.toBigInt(proofAndRequestCommitment[8]);
+			const sender = proofAndRequestCommitment[1];
+			
+			const debugDict = {
+			    pk: pk,
+				gamma: gamma,
+				c: c,
+				s: s,
+				seed: seed,
+				uWitness: uWitness,
+				cGammaWitness: cGammaWitness,
+				sHashWitness: sHashWitness,
+				zInv: zInv,
+				blockNum: blockNum,
+				subId: subId,
+				callbackGasLimit: callbackGasLimit,
+				numWords: numWords,
+				sender: sender
+			}
+			
+			console.log(debugDict);
+			
+			const proof = [
+				pk,
+				gamma,
+				c,
+				s,
+				seed,
+				uWitness,
+				cGammaWitness,
+				sHashWitness,
+				zInv,
+			]
+
+			const requestCommitment = [
+				blockNum,
+				subId,
+				callbackGasLimit,
+				numWords,
+				sender,
+				'0x',
+			]
+			
+			if (payWithRando){				
+                                const weiToPay = web3.utils.toBigInt(0);
+				
+				window.rnrClientContract.methods.requestRandomNumbersSynchronousUsingRando(amountOfRandomNumbersToRequest, proof, requestCommitment).send({
+					'from': metamaskSender,
+					'value': weiToPay
+				})
+				.on('confirmation', function(confirmationNumber, receipt){
+				    if (confirmationNumber == 1){
+					    alert('requestRandomNumbersSynchronousUsingRando successful!');
+					}
+				})
+				.on('error', function(error, receipt){
+				    alert('requestRandomNumbersSynchronousUsingRando failed. Please try again.');
+				});
+			}
+			else {
+				const priceOfARandomNumberInWei = await window.rnrClientContract.methods.priceOfARandomNumberInWei().call();
+				const weiToPay = amountOfRandomNumbersToRequest * priceOfARandomNumberInWei;
+			
+				window.rnrClientContract.methods.requestRandomNumbersSynchronousUsingNativeToken(amountOfRandomNumbersToRequest, proof, requestCommitment).send({
+					'from': metamaskSender,
+					'value': weiToPay
+				})
+				.on('confirmation', function(confirmationNumber, receipt){
+				    if (confirmationNumber == 1){
+					    alert('requestRandomNumbersSynchronousUsingNativeToken successful!');
+					}
+				})
+				.on('error', function(error, receipt){
+				    alert('requestRandomNumbersSynchronousUsingNativeToken failed. Please try again.');
+				});
+			}
+		}
+	  </script>
+   </body>
+</html>

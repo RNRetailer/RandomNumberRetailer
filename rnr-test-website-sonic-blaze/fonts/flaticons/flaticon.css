@@ -1,0 +1,121 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	*/
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("Flaticon.eot");
+  src: url("Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("Flaticon.woff") format("woff"),
+       url("Flaticon.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+font-style: normal;
+}
+
+.flaticon-angry-bulldog-face:before { content: "\f100"; }
+.flaticon-animal:before { content: "\f101"; }
+.flaticon-animal-1:before { content: "\f102"; }
+.flaticon-animal-2:before { content: "\f103"; }
+.flaticon-animal-3:before { content: "\f104"; }
+.flaticon-animal-4:before { content: "\f105"; }
+.flaticon-animal-5:before { content: "\f106"; }
+.flaticon-animal-6:before { content: "\f107"; }
+.flaticon-animal-7:before { content: "\f108"; }
+.flaticon-animal-8:before { content: "\f109"; }
+.flaticon-animal-paw-print:before { content: "\f10a"; }
+.flaticon-animals:before { content: "\f10b"; }
+.flaticon-animals-1:before { content: "\f10c"; }
+.flaticon-animals-2:before { content: "\f10d"; }
+.flaticon-animals-3:before { content: "\f10e"; }
+.flaticon-animals-4:before { content: "\f10f"; }
+.flaticon-animals-5:before { content: "\f110"; }
+.flaticon-animals-6:before { content: "\f111"; }
+.flaticon-animals-7:before { content: "\f112"; }
+.flaticon-aquarium:before { content: "\f113"; }
+.flaticon-basset-houd:before { content: "\f114"; }
+.flaticon-basset-hound-dog-head:before { content: "\f115"; }
+.flaticon-bernese-mountain:before { content: "\f116"; }
+.flaticon-bird:before { content: "\f117"; }
+.flaticon-border-collie:before { content: "\f118"; }
+.flaticon-border-collie-head:before { content: "\f119"; }
+.flaticon-brush:before { content: "\f11a"; }
+.flaticon-bulldog:before { content: "\f11b"; }
+.flaticon-bulldog-head:before { content: "\f11c"; }
+.flaticon-cat:before { content: "\f11d"; }
+.flaticon-chewing-bone-for-dog:before { content: "\f11e"; }
+.flaticon-circle:before { content: "\f11f"; }
+.flaticon-dachshund:before { content: "\f120"; }
+.flaticon-doberman-dog-head:before { content: "\f121"; }
+.flaticon-dog:before { content: "\f122"; }
+.flaticon-dog-1:before { content: "\f123"; }
+.flaticon-dog-2:before { content: "\f124"; }
+.flaticon-dog-3:before { content: "\f125"; }
+.flaticon-dog-4:before { content: "\f126"; }
+.flaticon-dog-5:before { content: "\f127"; }
+.flaticon-dog-6:before { content: "\f128"; }
+.flaticon-dog-7:before { content: "\f129"; }
+.flaticon-dog-8:before { content: "\f12a"; }
+.flaticon-dog-and-pets-house:before { content: "\f12b"; }
+.flaticon-dog-bone:before { content: "\f12c"; }
+.flaticon-dog-bone-1:before { content: "\f12d"; }
+.flaticon-dog-face:before { content: "\f12e"; }
+.flaticon-dog-food-bowl:before { content: "\f12f"; }
+.flaticon-dog-head:before { content: "\f130"; }
+.flaticon-dog-in-front-of-a-man:before { content: "\f131"; }
+.flaticon-dog-kennel:before { content: "\f132"; }
+.flaticon-dog-pet-allowed-hotel-signal:before { content: "\f133"; }
+.flaticon-dog-puppy:before { content: "\f134"; }
+.flaticon-dog-training:before { content: "\f135"; }
+.flaticon-dog-training-1:before { content: "\f136"; }
+.flaticon-dog-training-2:before { content: "\f137"; }
+.flaticon-dog-training-3:before { content: "\f138"; }
+.flaticon-dog-with-big-and-pointy-ears:before { content: "\f139"; }
+.flaticon-dog-with-chubby-cheeks:before { content: "\f13a"; }
+.flaticon-dog-with-first-aid-kit-bag:before { content: "\f13b"; }
+.flaticon-dog-with-floppy-ears:before { content: "\f13c"; }
+.flaticon-dog-with-floppy-ears-1:before { content: "\f13d"; }
+.flaticon-face-of-a-dog-with-sleepy-eyes:before { content: "\f13e"; }
+.flaticon-face-of-staring-dog:before { content: "\f13f"; }
+.flaticon-food:before { content: "\f140"; }
+.flaticon-guinea-pig-heag:before { content: "\f141"; }
+.flaticon-hamster:before { content: "\f142"; }
+.flaticon-hamster-1:before { content: "\f143"; }
+.flaticon-kurzhaar:before { content: "\f144"; }
+.flaticon-laying-cat:before { content: "\f145"; }
+.flaticon-long-haired-dog-head:before { content: "\f146"; }
+.flaticon-man-combing-a-dog:before { content: "\f147"; }
+.flaticon-medical:before { content: "\f148"; }
+.flaticon-mouse:before { content: "\f149"; }
+.flaticon-pawprint:before { content: "\f14a"; }
+.flaticon-pawprint-1:before { content: "\f14b"; }
+.flaticon-pet-carrier:before { content: "\f14c"; }
+.flaticon-pet-food:before { content: "\f14d"; }
+.flaticon-pet-friendly:before { content: "\f14e"; }
+.flaticon-pet-hotel-sign-with-a-dog-and-a-cat-under-a-roof-line:before { content: "\f14f"; }
+.flaticon-pet-hotel-symbols-of-three-stars-a-semicircle-and-a-bone-black-shape:before { content: "\f150"; }
+.flaticon-pet-shelter:before { content: "\f151"; }
+.flaticon-pets:before { content: "\f152"; }
+.flaticon-pets-hotel-symbol-with-a-dog-and-a-cat-in-a-circle-with-one-star:before { content: "\f153"; }
+.flaticon-play:before { content: "\f154"; }
+.flaticon-poodle:before { content: "\f155"; }
+.flaticon-rat:before { content: "\f156"; }
+.flaticon-scissors:before { content: "\f157"; }
+.flaticon-siamese-cat:before { content: "\f158"; }
+.flaticon-sign:before { content: "\f159"; }
+.flaticon-sitting-rabbit:before { content: "\f15a"; }
+.flaticon-syringe:before { content: "\f15b"; }
+.flaticon-toyger-cat:before { content: "\f15c"; }
+.flaticon-track:before { content: "\f15d"; }
+.flaticon-turtle:before { content: "\f15e"; }
+.flaticon-vet-with-cat:before { content: "\f15f"; }
+.flaticon-veterinarian-hospital:before { content: "\f160"; }
+.flaticon-veterinary:before { content: "\f161"; }
+.flaticon-walking-the-dog:before { content: "\f162"; }
+.flaticon-zynga-logotype:before { content: "\f163"; }
