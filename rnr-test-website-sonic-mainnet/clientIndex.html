@@ -2171,7 +2171,7 @@ const randoABI = [
 			const metamaskSender = window.ethereumAddresses[0];
 
 			if (payWithRando){
-				const randoTokenAddress = '0x8BDe81Dd5e30b058b71362b50faD06e3fdACE640';
+				const randoTokenAddress = '0x842816B719249cC4C4bB08f27Ff02b54e52835A7';
 				const randoContract = new window.web3.eth.Contract(randoABI, randoTokenAddress);
 				const amountOfRandoToSpend = web3.utils.toBigInt(Math.ceil(Number(amountOfRandomNumbersToRequest) / 10));
                                 const amountOfRandoToSpendInSmallestUnit = amountOfRandoToSpend * web3.utils.toBigInt(10 ** 18);
