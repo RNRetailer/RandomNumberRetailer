@@ -13,6 +13,8 @@ SONIC MAINNET
 
 RNR Contract Test Website: https://rnretailer.github.io/RandomNumberRetailer/rnr-test-website-sonic-mainnet/
 
+RNR Example Client Test Website: https://rnretailer.github.io/RandomNumberRetailer/rnr-test-website-sonic-mainnet/clientIndex.html
+
 --
 
 SONIC BLAZE
