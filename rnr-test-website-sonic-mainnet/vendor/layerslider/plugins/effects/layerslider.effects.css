@@ -1,0 +1,19 @@
+
+/*
+	* LayerSlider Plugin: Slide Background Effects
+	*
+	* (c) 2011-2019 George Krupa, John Gera & Kreatura Media
+	*
+	* Plugin web:			https://layerslider.kreaturamedia.com/
+	* licenses:				http://codecanyon.net/licenses/standard
+*/
+
+
+/* RAIN */
+
+.ls-effect-particles-drop,
+.ls-effect-growing-drop {
+	position: absolute;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
