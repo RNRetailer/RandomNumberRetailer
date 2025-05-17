@@ -9,6 +9,12 @@ randomnumberretailer.eth
 
 --
 
+SONIC MAINNET
+
+RNR Contract Test Website: https://rnretailer.github.io/RandomNumberRetailer/rnr-test-website-sonic-mainnet/
+
+--
+
 SONIC BLAZE
 
 Example client: https://testnet.sonicscan.org/address/0x7a76ca9970fd50855cc472d3bd869b1e077e42f8
